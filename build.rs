@@ -32,8 +32,8 @@ fn static_link_all_in_dir(lib_dir: &str) {
 
     for entry in dir {
         let entry = entry.unwrap();
-
-        if entry.file_type().unwrap().is_file() {
+        let file_type = entry.file_type().unwrap();
+        if file_type.is_file() || file_type.is_symlink() {
             let file_name = entry
                 .file_name()
                 .into_string()
