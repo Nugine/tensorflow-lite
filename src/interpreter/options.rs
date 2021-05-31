@@ -11,6 +11,12 @@ impl InterpreterOptions {
     pub(crate) fn get_c_ptr(&self) -> *const C::TfLiteInterpreterOptions {
         self.options
     }
+
+    pub fn set_num_threads(&mut self, num_threads: u32) {
+        let num_threads = num_threads as i32;
+        assert!(num_threads > 0);
+        unsafe { C::TfLiteInterpreterOptionsSetNumThreads(self.options, num_threads) }
+    }
 }
 
 impl Default for InterpreterOptions {

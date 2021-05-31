@@ -7,7 +7,7 @@ use crate::tensor::Tensor;
 
 mod options;
 
-use self::options::InterpreterOptions;
+pub use self::options::InterpreterOptions;
 
 pub struct Interpreter {
     interpreter: *mut C::TfLiteInterpreter,
@@ -35,6 +35,10 @@ impl Interpreter {
 
     pub fn new_with_options(model: &Model, options: &InterpreterOptions) -> Result<Self> {
         Self::create(model, Some(options))
+    }
+
+    pub fn default_options() -> InterpreterOptions {
+        InterpreterOptions::default()
     }
 
     pub fn allocate_tensors(&mut self) -> Result<()> {
