@@ -1,2 +1,5 @@
 download:
-    ./download.sh
+    ./scripts/download.sh
+
+build target:
+    ./scripts/{{target}}.sh
