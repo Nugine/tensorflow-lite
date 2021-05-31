@@ -18,7 +18,7 @@ bindgen tflite_c.h \
     --allowlist-type 'TfLite.*' \
     --allowlist-function 'TfLite.*' \
     --allowlist-var 'TfLite.*' \
-	--default-enum-style moduleconsts \
+    --default-enum-style moduleconsts \
     --size_t-is-usize \
     -o tmp1 \
     -- \
