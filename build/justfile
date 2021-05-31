@@ -1,5 +1,0 @@
-download:
-    ./scripts/download.sh
-
-build target:
-    ./scripts/{{target}}.sh
